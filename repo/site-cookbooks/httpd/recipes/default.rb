@@ -6,7 +6,7 @@
 #
 # All rights reserved - Do Not Redistribute
 #
-log "httpd!!"
+log "httpd start!!"
 
 # install httpd
 package 'httpd' do
