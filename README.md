@@ -1,5 +1,5 @@
 # ChefLesson
-ChefのCookBook虎の巻
+
 
 Chefインストール
 ```
@@ -16,6 +16,17 @@ cookbookの依存関係を管理するツールをインストール
 sudo gem install berkshelf
 ```
 
+##knife-solo
+
+ローカルにリポジトリ作成  
+```
+knife solo init [リポジトリ名]
+```
+
+リモートでノードにchef-soloをインストールする
+```
+knife solo bootstrap [ホスト名]
+```
 
 cookbook作成  
 ```
@@ -42,3 +53,7 @@ knife solo cook [サーバ名] -i [鍵パス]
 | nodes | nodeオブジェクトを記述したjsonファイル置き場 |
 | roles | ロール機能の設定ファイル置き場。Webサーバとデータベースサーバを扱いたい場合など |
 | site-cookbooks | 自分で作ったクックブック置き場 |
+
+##メモ
+cookに失敗したときは、リモート上の下記ファイルにログ出力される
+`/var/chef/cache/chef-stacktrace.out`
