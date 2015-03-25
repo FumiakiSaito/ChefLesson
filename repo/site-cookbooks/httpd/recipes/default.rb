@@ -6,11 +6,14 @@
 #
 # All rights reserved - Do Not Redistribute
 #
-log "httpd start!!"
 
 # install httpd
-package 'httpd' do
-    action :install
+# install httpd-devel
+# install mod_ssl
+%w[httpd httpd-devel mod_ssl].each do |pkg|
+    package pkg  do
+        action :install
+    end
 end
 
 # service httpd start
@@ -18,15 +21,26 @@ end
 service "httpd" do
     action [:enable, :start]
  end
-  
- # /etc/httpd/conf/httpd.conf
- template "httpd.conf" do
-     path "/etc/httpd/conf/httpd.conf"
-     source "httpd.conf.erb"
-     notifies :restart, "service[httpd]"
-     variables({
-         :extra_directory_index => 'index.php',
-         :options_indexes => '-Indexes'
-         
-     })
+ 
+# /etc/httpd/conf/httpd.conf
+template "httpd.conf" do
+   path "/etc/httpd/conf/httpd.conf"
+   source "httpd.conf.erb"
+   notifies :restart, "service[httpd]"
  end
+ 
+# /etc/httpd/conf.d/vhosts.conf
+template "vhosts.conf" do
+   path "/etc/httpd/conf.d/vhosts.conf"
+   source "vhosts.conf.erb"
+   notifies :restart, "service[httpd]"
+ end
+ 
+ # fuel_template DocumentRoot
+ directory "/var/www/applications/fuel_template" do
+  owner "vagrant"
+  group "vagrant"
+  recursive true
+  mode 0755
+  action :create
+end
