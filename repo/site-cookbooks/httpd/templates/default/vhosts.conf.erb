@@ -1,0 +1,11 @@
+SetEnv FUEL_ENV development
+
+Alias /fuel_template "/var/www/applications/fuel_template/public"
+
+<Directory /var/www/applications/fuel_template/public>
+  Options All
+  AllowOverride All
+
+  Order allow,deny
+  Allow from all
+</Directory>
