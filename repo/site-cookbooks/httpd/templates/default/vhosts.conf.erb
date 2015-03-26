@@ -1,11 +1,24 @@
 SetEnv FUEL_ENV development
 
-Alias /fuel_template "/var/www/applications/fuel_template/public"
+Alias /fuel_template "/var/www/applications/fuel_template/current/src/public"
 
-<Directory /var/www/applications/fuel_template/public>
+<Directory /var/www/applications/fuel_template/current/src/public>
   Options All
   AllowOverride All
 
   Order allow,deny
   Allow from all
 </Directory>
+
+<VirtualHost *:80>
+  ServerName mysql.fumiaki.org
+
+  DocumentRoot /usr/share/phpMyAdmin
+
+  <Directory /usr/share/phpMyAdmin>
+    AllowOverride All
+
+    Order allow,deny
+    Allow from all
+  </Directory>
+</VirtualHost>

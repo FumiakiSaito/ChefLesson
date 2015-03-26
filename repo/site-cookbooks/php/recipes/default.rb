@@ -6,6 +6,7 @@
 #
 # All rights reserved - Do Not Redistribute
 #
+
 # install php
 %w[php php-cli php-common php-gd php-intl php-mbstring php-mcrypt  php-pecl-apc php-process php-snmp php-xml php-xmlrpc php-pecl-memcache php-pecl-memcached].each do |pkg|
     package pkg do
@@ -19,3 +20,4 @@ template "php.ini" do
    source "php.ini.erb"
    notifies :restart, "service[httpd]"
  end
+ 
