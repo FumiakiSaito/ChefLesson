@@ -54,6 +54,6 @@ knife solo cook [サーバ名] -i [鍵パス]
 | roles | ロール機能の設定ファイル置き場。Webサーバとデータベースサーバを扱いたい場合など |
 | site-cookbooks | 自分で作ったクックブック置き場 |
 
-##メモ
+##メモ  
 cookに失敗したときは、リモート上の下記ファイルにログ出力される
 `/var/chef/cache/chef-stacktrace.out`
