@@ -1,0 +1,13 @@
+{
+  "run_list": [
+   "recipe[user]",
+   "recipe[php]",
+   "recipe[mysqld]",
+   "recipe[httpd]",
+   "recipe[git]",
+   "recipe[nodejs]"
+  ],
+  "automatic": {
+    "ipaddress": "fumiaki.org"
+  }
+}
