@@ -1,8 +1,17 @@
 SetEnv FUEL_ENV development
 
 Alias /fuel_template "/var/www/applications/fuel_template/current/src/public"
+Alias /codeignitertest "/var/www/applications/codeignitertest"
 
 <Directory /var/www/applications/fuel_template/current/src/public>
+  Options All
+  AllowOverride All
+
+  Order allow,deny
+  Allow from all
+</Directory>
+
+<Directory /var/www/applications/codeignitertest>
   Options All
   AllowOverride All
 

@@ -44,3 +44,12 @@ template "vhosts.conf" do
   mode 0755
   action :create
 end
+
+ # codeignitertest DocumentRoot
+ directory "/var/www/applications/codeignitertest" do
+  owner "vagrant"
+  group "vagrant"
+  recursive true
+  mode 0755
+  action :create
+end
