@@ -19,6 +19,14 @@ Alias /codeignitertest "/var/www/applications/codeignitertest"
   Allow from all
 </Directory>
 
+<Directory /var/www/applications/eccubetest>
+  Options All
+  AllowOverride All
+
+  Order allow,deny
+  Allow from all
+</Directory>
+
 <VirtualHost *:80>
   ServerName mysql.fumiaki.org
 
