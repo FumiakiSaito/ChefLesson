@@ -1,24 +1,24 @@
-# ChefLesson
+# Chef
 
 
-####Chefインストール
+#### Chefインストール
 ```
 curl -L https://www.opscode.com/chef/install.sh | sudo bash
 ```
 
-####knife-soloインストール  
+#### knife-soloインストール  
 ```
 sudo gem install knife-solo
 ```
 
-##knife-solo
+## knife-solo
 
-####ローカルにリポジトリ作成(サーバ毎に作る)  
+#### ローカルにリポジトリ作成(サーバ毎に作る)  
 ```
 knife solo init [リポジトリ名]
 ```
 
-####リモートでノードにchef-soloをインストールする   
+#### リモートでノードにchef-soloをインストールする   
 ```
 knife solo bootstrap [ホスト名]
 ```
@@ -27,22 +27,22 @@ knife solo bootstrap [ホスト名]
 をしておく 
 
 
-####cookbook作成(インストール(設定)したいもの毎に作る)
+#### cookbook作成(インストール(設定)したいもの毎に作る)
 ```
 knife cookbook create [cookbook名] -o site-cookbooks
 ```
 
-####cookbookをnodeに反映  
+#### cookbookをnodeに反映  
 ```
 knife solo cook [サーバ名]
 ```
 
-####cookbookをnodeに反映(秘密鍵指定)  
+#### cookbookをnodeに反映(秘密鍵指定)  
 ```
 knife solo cook [サーバ名] -i [鍵パス]
 ```
 
-####リポジトリ構造
+#### リポジトリ構造
 
 | ディレクトリ   |      説明      |
 |:----------|:-------------|
@@ -53,13 +53,13 @@ knife solo cook [サーバ名] -i [鍵パス]
 | roles | ロール機能の設定ファイル置き場。Webサーバとデータベースサーバを扱いたい場合など |
 | site-cookbooks | 自分で作ったクックブック置き場 |
 
-##Berkshelf(コミュニティクックブック管理ツール)  
-####インストール  
+## Berkshelf(コミュニティクックブック管理ツール)  
+#### インストール  
 ```
 sudo gem install berkshelf
 ```
 
-####コミュニティクックブックを取得  
+#### コミュニティクックブックを取得  
 Berksfileに取得元URLと取得したいクックブックを指定  
 
 ```ruby:Berksfile
@@ -81,6 +81,6 @@ berks verndor ./cookbooks
 
 
 
-##メモ  
+## メモ  
 cookに失敗したときは、リモート上の下記ファイルにログ出力される  
 `/var/chef/cache/chef-stacktrace.out`
